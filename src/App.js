@@ -1,33 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
+import useApi from './hooks/useApi';
 import { getMyRepos } from './api';
 
 import './App.scss';
 
 function App() {
 
-  const [loading, setLoading] = useState(false);
-  const [items, setItems] = useState([]);
-  const [error, setError] = useState('');
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const repos = await getMyRepos();
-        setItems(repos);
-      } catch (e) {
-        setError(e.message);
-      }
-      setLoading(false);
-    };
-
-    fetchData();
-  }, [])
-
-  console.log(loading, error, items);
-  
+  const { error, items, loading } = useApi(getMyRepos, null);
 
   return (
     <div className="App">
