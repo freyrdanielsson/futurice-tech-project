@@ -1,68 +1,36 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+First copy the `.env_example` to an `.env` file. You can also simply rename `.env_example` to `.env`. The reason for this step is that we want to keep some of our environment variables secret.
 
-### `yarn start`
+You need to place a [Github personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) in the `.env` as well as your github username.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+After the environment has been setup you can now run:
+```bash
+yarn install
+yarn start
+```
+And we're all set!
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Github repository overview
+The web app is supposed to serve as an overview for all the repositories that have you listed as a contributer. The solution is practical for people working in a couple of different repositories and want to keep an eye on the activities and events for each repo.
 
-### `yarn test`
+### Tasks
+- [X] Get familiar with Github api (1)
+- [X] Setup tools and dev environment (0.5)
+- [X] Design layout (0.5)
+- [X] Fetch repos (1)
+- [X] Fetch events (1)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Future
+The original idea was to enable browser notifications that would send notifications to the user whenever there is a new repository event. I  haven't estimated how long that would take but I have made a process map to illustrate how we could go about to implement it.
 
-### `yarn build`
+- Client registers a service worker
+- Client creates a push notification subscription
+- Client asks service worker to send subscription to push server (different for different browsers)
+- Push server exposes GET /subid
+- Create a webhook on github
+- make a GET request to push server whenever webhook is triggered
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

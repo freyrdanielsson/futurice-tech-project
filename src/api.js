@@ -19,8 +19,9 @@ async function request(method, path, data) {
     }
 
     // Hardcoded user for now.
+    const user = process.env.REACT_APP_GITHUB_USER;
     const key = process.env.REACT_APP_GITHUB_API_KEY;
-    const token = btoa(`freyrdanielsson:${key}`);
+    const token = btoa(`${user}:${key}`);
     options.headers['Authorization'] = `Basic ${token}`;
 
     const response = await fetch(url.href, options);
