@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Lab 2",
+  "name": "Lab 2 - Using mobile UI libraries. Powered by React + OnsenUI",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,9 +13,9 @@
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "iphone6_splash.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "750x1334"
     }
   ],
   "start_url": ".",

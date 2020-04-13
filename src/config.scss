@@ -1,0 +1,38 @@
+$max-width: 1400px;
+$gutter: 30px;
+
+$font-main: 'Open Sans', helvetica, arial, sans-serif;
+$font-heading: 'Noto Serif', georgia, serif;
+
+$color-font: #222;
+$color-background: #eee;
+$color-gray: #ccc;
+$color-invalid: #4e1d04;
+
+$transition: 250ms ease-in-out;
+
+@mixin container() {
+  max-width: $max-width;
+  margin: 0 auto;
+  margin-bottom: $gutter * 2;
+
+  @media (max-width: $max-width - 1) {
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+}
+
+@mixin row() {
+  display: flex;
+
+  margin-right: -($gutter / 2);
+  margin-left: -($gutter / 2);
+}
+
+@mixin columns($col: 1) {
+  // multiply with 1% to change value to percentage  
+  width: ($col / 12 * 100) * 1%;
+
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+}
