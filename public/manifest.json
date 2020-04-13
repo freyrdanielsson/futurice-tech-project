@@ -1,6 +1,6 @@
 {
-  "short_name": "Lab 2",
-  "name": "Lab 2 - Using mobile UI libraries. Powered by React + OnsenUI",
+  "short_name": "Github Api Project",
+  "name": "Github Api Project as a technical assignment",
   "icons": [
     {
       "src": "favicon.ico",
