@@ -5,3 +5,13 @@
   width: 100%;
   max-width: $max-width;
 }
+
+.repositories {
+  @include row;
+  flex-wrap: wrap;
+
+  @media (max-width: $max-width - 1) {
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+}

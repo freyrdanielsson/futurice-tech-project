@@ -1,0 +1,21 @@
+@import '../../config.scss';
+
+.repo {
+    @include columns(4);
+    margin-bottom: $gutter * 2;
+
+    &__content {
+        border: solid 1px $color-border;
+        border-radius: 5px;
+        padding: $gutter / 4;
+    }
+
+    &__header:after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+        padding-top: 20px;
+        border-bottom: 1px solid $color-gray;
+    }
+}

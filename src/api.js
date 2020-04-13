@@ -55,6 +55,26 @@ async function getMyRepos() {
     return result.data;
 }
 
+async function getRepoEvents(repo_fullname) {
+    let result;
+
+    try {
+        result = await get(`/repos/${repo_fullname}/events`);
+    } catch (e) {
+        console.error('Error fetching current user repository', e);
+        throw new Error(e)
+    }
+
+    // Incase of error unrelate to e.g connection
+    if (result && !result.ok) {
+        const { data: { error = 'Error fetching current user repository' } } = result;
+        throw new Error(error);
+    }
+
+    return result.data;
+}
+
 export {
     getMyRepos,
+    getRepoEvents,
 }
