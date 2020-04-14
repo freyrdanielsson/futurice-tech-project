@@ -2,4 +2,6 @@
 
 .repo__events {
     list-style-type: none;
+    max-height: $gutter * 15;
+    overflow: scroll;
 }

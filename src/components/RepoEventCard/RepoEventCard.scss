@@ -1,0 +1,24 @@
+@import '../../config.scss';
+
+.event {
+    margin-bottom: $gutter / 2;
+    border: solid 1px $color-gray;
+    border-radius: 5px;
+    padding: $gutter / 2;
+
+    &__header {
+        margin-bottom: $gutter / 2;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+    }
+
+    &__footer {
+        margin-top: $gutter / 2;
+        font-size: .8em;
+    }
+
+    &__commit-list {
+        list-style-type: none;
+    }
+}

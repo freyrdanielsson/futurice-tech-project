@@ -13,9 +13,8 @@
     &__header:after {
         content: "";
         display: block;
-        margin: 0 auto;
+        margin: 10px auto;
         width: 90%;
-        padding-top: 20px;
         border-bottom: 1px solid $color-gray;
     }
 }
