@@ -1,6 +1,7 @@
 import React from 'react';
 
 import useApi from './hooks/useApi';
+import usePush from './hooks/usePush';
 import { getMyRepos } from './api';
 
 import RepoContainer from './components/RepoContainer/RepoContainer';
@@ -9,6 +10,7 @@ import './App.scss';
 
 function App() {
 
+  usePush();
   const { error, items, loading } = useApi(getMyRepos, null);
 
   return (

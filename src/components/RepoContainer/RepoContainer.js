@@ -13,11 +13,10 @@ function RepoContainer(props) {
                 <div className='repo__header'>
                     <h3>{repo.name}</h3>
                     <p>{repo.owner.login}</p>
+                    <button><span role='img' aria-label=''>Turn on notifications</span></button>
                 </div>
-                <RepoEvents full_name={repo.full_name}/>
+                <RepoEvents full_name={repo.full_name} />
             </div>
-
-
         </div>
     );
 }

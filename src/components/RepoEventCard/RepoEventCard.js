@@ -6,7 +6,6 @@ function RepoEventCard(props) {
 
     const { id, type, actor, payload, created_at } = props.event;
 
-    console.log(props.event);
     const time = created_at.slice(0, -1).split('T');
 
     return (

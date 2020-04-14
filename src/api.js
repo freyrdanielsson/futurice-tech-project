@@ -5,6 +5,10 @@ async function get(path) {
     return request('GET', path);
 }
 
+async function post(path, data) {
+    return request('POST', path, data);
+}
+
 async function request(method, path, data) {
     const url = new URL(path, baseurl);
 
@@ -23,6 +27,7 @@ async function request(method, path, data) {
     const key = process.env.REACT_APP_GITHUB_API_KEY;
     const token = btoa(`${user}:${key}`);
     options.headers['Authorization'] = `Basic ${token}`;
+
 
     const response = await fetch(url.href, options);
 
@@ -75,7 +80,28 @@ async function getRepoEvents(repo_fullname) {
     return result.data;
 }
 
+async function postSubscription(subscription) {
+    let result;
+
+    try {
+        result = await post('http://127.0.0.1:5000', subscription);
+    } catch (e) {
+        console.error('Unable to post notification subscription', e);
+        console.error(e);
+        throw new Error(e)
+    }
+
+    // Incase of error unrelate to e.g connection
+    if (result && !result.ok) {
+        const { data: { error = 'Error fetching current user repository' } } = result;
+        throw new Error(error);
+    }
+
+    return result.data;
+}
+
 export {
     getMyRepos,
     getRepoEvents,
+    postSubscription,
 }
