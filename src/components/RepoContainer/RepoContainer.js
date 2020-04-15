@@ -30,7 +30,10 @@ function RepoContainer(props) {
         setLoading(true);
         setError(null);
         try {
-            await postWebhook(data, repo.name, repo.owner.login);
+            const response = await postWebhook(data, repo.name, repo.owner.login);
+            console.log(response);
+            
+
         } catch (error) {
             setError(error.message)
         } finally {

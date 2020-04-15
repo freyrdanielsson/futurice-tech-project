@@ -137,8 +137,8 @@ async function postWebhook(data, repo, owner) {
     }
 
     // Incase of error unrelate to e.g connection
-    if (result && !result.ok && result.status === 422) {
-        const { data: { error = 'Already subscribed' } } = result;
+    if (result && !result.ok) {
+        const { data: { error = result.status === 422 ? 'Already subscribed' : 'Github api key missing' } } = result;
         throw new Error(error);
     }
 
