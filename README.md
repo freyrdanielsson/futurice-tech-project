@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Installation
 
 First copy the `.env_example` to an `.env` file. You can also simply rename `.env_example` to `.env`. The reason for this step is that we want to keep some of our environment variables secret.
@@ -19,7 +17,7 @@ And we're all set!
 The web app is supposed to serve as an overview for all the repositories that have you listed as a contributer. The solution is practical for people working in a couple of different repositories and want to keep an eye on the activities and events for each repo. I also added a notification feature, so the UI can serve as a web push notification manager for github repositories.
 
 ## Tools and Architecture
-The project uses the ReactJs library and was bootstraped with creat-react-app
+The project uses the ReactJs library and was bootstraped with [Create React App](https://github.com/facebook/create-react-app)
 ### Stylesheets
 - Written in scss (Syntactically Awesome Style Sheets)
 - Uses variables placed in `config.scss` for consistency
