@@ -17,4 +17,40 @@
         width: 90%;
         border-bottom: 1px solid $color-gray;
     }
+
+    &__notifications {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__button {
+        display: inline-block;
+
+        width: 100%;
+        max-width: 150px;
+        padding: 5px 10px;
+        margin: 0;
+
+        font-family: $font-main;
+
+        
+        text-align: center;
+
+        cursor: pointer;
+
+        background-color: $color-gray;
+
+        border: 1px solid $color-font;
+        border-radius: 4px;
+
+        transition:
+            color $transition,
+            background-color $transition,
+            border-color $transition;
+
+        &:hover {
+            color: $color-font;
+            background-color: $color-background;
+        }
+    }
 }

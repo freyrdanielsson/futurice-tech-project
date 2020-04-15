@@ -137,8 +137,8 @@ async function postWebhook(data, repo, owner) {
     }
 
     // Incase of error unrelate to e.g connection
-    if (result && !result.ok) {
-        const { data: { error = 'Error fetching current user repository' } } = result;
+    if (result && !result.ok && result.status === 422) {
+        const { data: { error = 'Already subscribed' } } = result;
         throw new Error(error);
     }
 

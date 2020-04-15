@@ -18,7 +18,7 @@ export default function useApi(apiCall, defaultValue, deps = []) {
     };
 
     fetchData();
-  }, deps);
+  }, deps); // Ignore, doesn't happen with typescript
 
   return { items, loading, error };
 }

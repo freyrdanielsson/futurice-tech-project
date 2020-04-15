@@ -2,12 +2,11 @@ import { useState, useEffect } from "react";
 
 import { postSubscription } from '../api'
 
-
+// Needs error handling
 export default function usePushNotifications() {
     const [userConsent, setSuserConsent] = useState(Notification.permission);
     const [pushServerSubscriptionId, setPushServerSubscriptionId] = useState();
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
 
     // Register service worker
     useEffect(() => {
@@ -46,8 +45,6 @@ export default function usePushNotifications() {
             });
             const response = await postSubscription(subscription);
             setPushServerSubscriptionId(response.id);
-            console.log(response);
-
         }
         subscribe();
     }, [])
@@ -56,7 +53,6 @@ export default function usePushNotifications() {
     return {
         userConsent,
         pushServerSubscriptionId,
-        error,
         loading
     };
 }

@@ -28,33 +28,24 @@ function RepoContainer(props) {
         }
 
         setLoading(true);
+        setError(null);
         try {
-            const result = await postWebhook(data, repo.name, repo.owner.login);
-
-            if (!result.ok) {
-                setError(result.data.errors);
-            } else {
-                setError(null);
-            }
+            await postWebhook(data, repo.name, repo.owner.login);
         } catch (error) {
-            setError(e.message)
+            setError(error.message)
         } finally {
             setLoading(false)
         }
     }
 
+
     async function handleUnubscription(e) {
         setLoading(true);
+        setError(null);
         try {
-            const result = await delWebhook( repo.name, repo.owner.login);
-
-            if (!result.ok) {
-                setError(result.data.errors);
-            } else {
-                setError(null);
-            }
+            await delWebhook(repo.name, repo.owner.login);
         } catch (error) {
-            setError(e.message)
+            setError(error.message)
         } finally {
             setLoading(false)
         }
@@ -66,8 +57,15 @@ function RepoContainer(props) {
                 <div className='repo__header'>
                     <h3>{repo.name}</h3>
                     <p>{repo.owner.login}</p>
-                    <button onClick={handleSubscription}><span role='img' aria-label=''>Turn on notifications</span></button>
-                    <button onClick={handleUnubscription}><span role='img' aria-label=''>Turn off notifications</span></button>
+                    {loading
+                        ? <div>1 sec!</div>
+                        : <div className='repo__notifications'>
+                            <button className='repo__button' onClick={handleSubscription}><span role='img' aria-label=''>Turn on notifications</span></button>
+                            <button className='repo__button' onClick={handleUnubscription}><span role='img' aria-label=''>Turn off notifications</span></button>
+                        </div>
+                    }
+                    {error &&
+                        <div><p>{error}</p></div>}
                 </div>
                 <RepoEvents full_name={repo.full_name} />
             </div>
