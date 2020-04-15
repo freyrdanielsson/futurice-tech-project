@@ -10,7 +10,7 @@ import './App.scss';
 
 function App() {
 
-  usePush();
+  const { pushServerSubscriptionId } = usePush();
   const { error, items, loading } = useApi(getMyRepos, null);
 
   return (
@@ -22,7 +22,7 @@ function App() {
         <div className='repositories'>
           {items.map(repo => {
             return (
-              <RepoContainer key={repo.id} repo={repo} />
+              <RepoContainer key={repo.id} repo={repo} pushServerSubscriptionId={pushServerSubscriptionId}/>
             );
           })}
         </div>
