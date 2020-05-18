@@ -46,5 +46,6 @@ Additional features that would add value to the project would be:
 - Manage repositories view (hide/show repos)
 - Add a 5 min delay for notifications because the events wont show up in github api response until after 5 min,
 - Make it mobile friendly, splash screen and touch icon ready for iphone (my iphone...)
+- test
 
 
